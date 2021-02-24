@@ -1,5 +1,5 @@
 {
-    "sketch": "analog/ex06/app.ino",
+    "sketch": "colorled/ex03/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM3"
 }
