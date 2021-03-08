@@ -1,7 +1,8 @@
 #include <Keypad.h>
 #include <SimpleTimer.h>
 #include <Servo.h>
-#include <DoorLock.h>
+#include <EEPROM_write_read.h>
+#include <Led.h>
 
 const byte ROWS = 4; // 4행
 const byte COLS = 4; // 4열
@@ -25,7 +26,7 @@ int timer_id;
 
 Servo door;
 Led led(4); // 부저와 같이 동작
-DoorLock doorlock;
+EEPROM_write_read w_r;
 // 키 입력을 하면 input에 구성
 // F를 누르면 완료...
 // 이때까지 입력한 문자열을
@@ -37,7 +38,7 @@ void setup()
     door.attach(5);
     door.write(0);
     led.off();
-    PASSWORD = doorlock.read_password(); // 저장된 비밀번호 읽어오기
+    PASSWORD = w_r.read_password(); // 저장된 비밀번호 읽어오기
 }
 
 void beep(int interval = 100)
@@ -102,7 +103,7 @@ void loop()
             if (input[0] == 'C')
             {
                 PASSWORD = input.substring(1); // substring(from,to) to는 미포함
-                doorlock.write_password(PASSWORD);
+                w_r.write_password(PASSWORD);
                 Serial.println("New Password: " + PASSWORD);
             }
             else
