@@ -1,5 +1,5 @@
 {
-    "sketch": "/dcmotor/ex03/app.ino",
+    "sketch": "/keypad/ex02/app.ino",
     "board": "arduino:avr:uno",
     "port": "COM3"
 }
