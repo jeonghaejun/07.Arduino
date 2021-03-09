@@ -27,10 +27,7 @@ int timer_id;
 Servo door;
 Led led(4); // 부저와 같이 동작
 EEPROM_write_read w_r;
-// 키 입력을 하면 input에 구성
-// F를 누르면 완료...
-// 이때까지 입력한 문자열을
-// 시리얼로 출력
+
 
 void setup()
 {
