@@ -28,7 +28,6 @@ Servo door;
 Led led(4); // 부저와 같이 동작
 EEPROM_write_read w_r;
 
-
 void setup()
 {
     Serial.begin(9600);
@@ -99,13 +98,13 @@ void loop()
             // 'C0248' 이면 '0248'이 새로운 비밀번호가 됨.
             if (input[0] == 'C')
             {
-                PASSWORD = input.substring(1); // substring(from,to) to는 미포함
+                PASSWORD = input.substring(1);   // substring(from,to) to는 미포함
                 w_r.write_password(PASSWORD);
                 Serial.println("New Password: " + PASSWORD);
             }
             else
             {
-                if (input == PASSWORD) // 문 열어줌.
+                if (input == PASSWORD)   // 문 열어줌.
                 {
                     Serial.println("Password matched!");
                     open_door();
